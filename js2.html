@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>table</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+	// 表格
+	tableRowColor(5,6);
+	function tableRowColor(rows,cols){
+	document.write('<table border=1>');
+		for(var j=1;j<=rows;j++){
+			document.write('<tr>');
+			if(j%2 == 0){
+  				document.write('<tr bgcolor=red>');
+				}else{
+					document.write('<tr bgcolor=yellow>');
+				}
+				for(var i=1;i<=cols;i++){
+					document.write(`<td>${i}-${j}</td>`)
+				}
+			document.write('</tr>');
+		}
+		
+		
+	document.write('</table>');
+	}
+//三角1	
+	var table='<table>';
+		for(var i=1;i<6;i++){
+			if(i%2==0){
+
+			}
+
+			table+='<tr>';
+			for(var j=1;j<=i;j++){
+				
+					table+='<td>1</td>';
+				
+				
+			}
+			table+='</tr>';
+		}
+		document.write(table);
+// 杨辉三角
+//     *
+//   * * *
+// * * * * *
+// 行号 *数          空个数
+// 1    1(2*行号-1)    2  
+// 2    3              1
+// 3    5              0(行数-行号)
+		yangHui(20);
+		function yangHui(b){
+		for(var i=1;i<b;i++){
+			for(var n=1;n<b-i;n++){
+					document.write('&nbsp');
+				}
+			for(var j=1;j<=2*i-1;j++){
+				
+				document.write('*');
+
+			}
+			document.write('<br/>');
+		}
+		}
+//斐波那契数列
+//1 1 2 3 5 8 13 21
+		Fei(200);
+		function Fei(x){
+		var i=1,j=1;
+		document.write('&nbsp'+i+'&nbsp'+j);
+		for(var k=0;k<=x;){
+			k=i+j;
+			i=j;
+			j=k;
+			document.write('&nbsp'+k);
+		}
+		}
+	// 乘法表
+	chengTable(9);
+	function chengTable(row){	
+	document.write('<table border=1>');
+		for(var j=1;j<=row;j++){
+			document.write('<tr>');
+				for(var i=1;i<=j;i++){
+					if(i%2 == 0){
+  				       document.write(`<td bgcolor=red> ${i}*${j}</td>`);
+				     }else{
+				     document.write(`<td bgcolor=green> ${i}*${j}</td>`);
+				     }
+				}
+			document.write('</tr>');
+		}
+		
+		
+	document.write('</table>');
+	}
+
+
+//行列
+	chengtableColor(15);
+	function chengtableColor(x){
+	document.write('<table border=1>');
+		for(var j=1;j<=x;j++){
+			if(j%2 == 0){
+  				document.write(`<tr>`);    
+				for(var i=1;i<=j;i++){
+					if(i%2 == 0){
+  				       document.write(`<td bgcolor=red> ${i}*${j}</td>`);
+				     }else{
+				     document.write(`<td bgcolor=green> ${i}*${j}</td>`);
+				     }
+				}
+				 
+				document.write('</tr>');
+				}
+		
+			else{
+				document.write('<tr>');
+				     
+				for(var i=1;i<=j;i++){
+					if(i%2 == 1){
+  				       document.write(`<td bgcolor=pink> ${i}*${j}</td>`);
+				     }else{
+				     document.write(`<td bgcolor=yellow> ${i}*${j}</td>`);
+				     }
+				}
+				
+			document.write('</tr>');
+			}
+		}
+	document.write('</table>');
+	}
+//去空
+	var varr=[1,2,,4,5,6,,8,9];
+	quKong(varr);
+	function quKong(arr){
+	var arr1=[];
+	// var arr=[1,2,,4,5,6,,8,9];
+	for(var i=0;i<arr.length;i++){
+		if((typeof arr[i])!=='undefined'){
+			arr1[arr1.length]=arr[i];
+		}
+	}
+	console.log(arr1);
+	}
+//最大 最小值
+	var narr=[52,54,62,12,0,58];
+	 maxMin(narr);
+	function maxMin(arr){
+	var min=max=arr[0];
+	for(var i=0;i<arr.length;i++){
+		if(max<arr[i]){
+			max=arr[i]; 
+
+		}
+		if(min>arr[i]){
+			min=arr[i];
+		}
+	}
+	console.log(max); 
+	console.log(min);
+	}
+//排序
+	var narr=[52,54,62,12,0,58];
+	 paiXu(narr);
+	function paiXu(arr){
+	for(var i=0;i<arr.length;i++){
+		for(var j=i+1;j<arr.length;j++){
+			if(arr[i]<arr[j]){
+				var t=arr[i];
+				arr[i]=arr[j];
+				arr[j]=t;
+			}
+		}
+		}
+		console.log(arr);
+		}
+
+//二维数组最大值
+	var narr=[[21,54,36],[36,56,87],[89,74,96]];
+	erMax(narr);
+	function erMax(grand){
+	var max1=grand[0][0];
+	for(var i=0;i<grand.length;i++){
+		for(var j=0;j<grand[i].length;j++){
+			if(max1<grand[j][i]){
+				max1=grand[j][i];
+			}
+		}
+		
+	}
+	console.log(max1);
+	}
+
+</script>

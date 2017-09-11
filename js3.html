@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//查找
+	var narr=[1,2,1,3,5,4];
+	var r=exit(narr,6);
+	alert(r);
+	function exit(arr, x){
+		for(var i=0;i<arr.length;i++){
+			if(!(typeof arr =='object' &&arguments.length==2)){
+				return 'wrong';
+			}
+			if(arr[i]==x){
+				return true;
+			}
+		}
+		return false;
+	}
+//找数组中某个数第一次出现的位置
+	 var r=[3,1,4,2,3,54,87,12]
+	 var t=rfn(r,function(v){
+	 	return v==3;
+	 });
+	 console.log(t);
+	  function fn(arr,fn1){
+	  	for(var i=0;i<arr.length;i++){
+	 		if(fn1(arr[i])){
+	 			return i;
+	 		}
+	 	}
+		return -1;
+	  }
+	//最后出现的位置
+	  function rfn(arr,fn2){
+	  	for(var i=arr.length-1;i>=0;i--){
+	  		if(fn2(arr[i])){
+	  			return i;
+	  	}
+	  }
+	  return -1;
+	 }
+//数组元素反转
+	var arr=[1,2,3,4,5,6];
+	function reverse(arr){
+		var narr=[];
+		for(var i=arr.length-1;i>=0;i--){
+			push(narr,arr[i]);
+		}
+		return narr;
+	}
+	function push(arr,...rest){
+		for(var i=0;i<rest.length;i++){
+			arr[arr.length]=rest[i];
+		}
+	}
+	console.log(reverse(arr));
+
+//数组转字符串
+	var narr=[1,2,1,3,5,4];
+	zhuan(narr);
+	function zhuan(arr){
+		var r='';
+		for(var i=0;i<arr.length;i++){
+			r+=String(arr[i]);
+		}
+		console.log(r);
+		console.log(typeof r);
+	}
+//删除
+	var arr=[1,2,3,4,5,6];
+	function delete1(arr,pos,num){
+		var narr=[];
+		for(var i=0;i<arr.length;i++){
+			if(i>=pos &&i<pos+num){
+				continue;
+			}
+			push(narr,arr[i]);
+		}
+		return narr;
+	}
+	console.log(delete1(arr,1,3));
+//在第n个元素前添加元素
+	function wadd(arr,pos,...rest){
+		var narr=[];
+		for(var i=0;i<pos;i++){
+			narr[narr.length]=arr[i];
+		}
+		for(var i=0;i<rest.length;i++){
+			narr[narr.length]=rest[i];
+		}
+		for(var i=pos;i<arr.length;i++){
+			narr[narr.length]=arr[i];
+		}
+		return narr;
+	} 
+	console.log(wadd(arr,2,1,2,3,6,4));
+	//在第n个元素后添加
+	function wadd2(arr,pos,...rest){
+		var narr=[];
+		for(i=0;i<arr.length;i++){
+			if(i<pos ||i>pos){
+				narr[narr.length]=arr[i];
+			}else if(i==pos){
+				narr[narr.length]=arr[pos];
+				for(var j=0;j<rest.length;j++){
+					narr[narr.length]=rest[j];
+				}
+			}
+			
+		}
+		return narr;
+	}
+	console.log(wadd2(arr,2,1,2,3,6,4));
+	function change1(arr,pos,num,...rest){
+		var narr=delete1(arr,pos,num);
+		if(rest.length>0){
+			narr= wadd(narr,pos,...rest);
+		}
+		return narr;
+	}
+	console.log(change1(arr,2,2,'a',1,1,1,1,1,'x'));
+ 
+
+
+	var narr=[1,2,1,3,5,4];
+	console.log(zhuan1(narr,'+'));
+	console.log(typeof zhuan1(narr,'-'));
+	function zhuan1(arr,x){
+		// x = x==undefined?'-':x;
+		// x = x || '-';
+		if(x==undefined){
+			x='-';
+		}else{
+			x=x;
+		}
+		var r='';
+		for(var i=0;i<arr.length;i++){
+		// 	if(i!==arr.length-1){
+		// 		r+=arr[i]+x;
+		// 	}else{
+		// 		r+=arr[i];
+		// 	}
+		// }
+			r = (i!==arr.length-1)?(r+=arr[i]+x) : (r+=arr[i]);
+		
+		}
+		return r;
+	}
+//filter	
+	var narr=[1,2,1,3,5,4,8,45];
+	filter(narr);
+	function filter(arr){
+		var newarr=[];
+		var rarr=[];
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]%2==0){
+				newarr[newarr.length]=arr[i];
+			}else{
+				rarr[rarr.length]=arr[i];
+			}
+		}
+		console.log(newarr);
+		console.log(rarr);
+	}
+//简易计算
+	function add(num1,num2){
+		return num1+num2;
+	}
+	function subtraction(num1,num2){
+		return num1-num2;
+	}
+	function multiply(num1,num2){
+		return num1*num2;
+	}
+	function division(num1,num2){
+		return num1/num2;
+	}
+	function math(numm1,numm2,fn){
+		return fn(numm1,numm2);
+	}
+	var r=math(12,3,multiply);
+	console.log(r);
+
+//函数多功能调用(映射。回调函数)
+	var arr2=[1,5,2,3,4,7];
+	var r=math1(arr2,function(x){
+		return x-2;
+	});
+	console.log(r);
+	function math1(arr,fn){
+		var newarr=[];
+		for(var i=0;i<arr.length;i++){
+			newarr[newarr.length]=fn(arr[i]);
+		}
+		return newarr;
+	}
+
+
+	var t=filter1(arr2,function(y){
+		return y<7; 
+	});
+	console.log(t);
+	function filter1(arr,filter){
+		var newarr=[];
+		for(var i=0;i<arr.length;i++){
+			if(filter(arr[i])){
+				newarr[newarr.length]=arr[i];
+			}
+		}
+		return newarr;
+	}
+
+
+	var arr=[-1,1,2,3,45,6];
+	var x=map(arr,function(v){
+		return v*2;
+	})
+	function map(arr,fn){
+		var newarr=[];
+		for(var i=0;i<arr.length;i++){
+			push(newarr,fn(arr[i]));
+		}
+		return newarr;
+	}
+	console.log(x);
+
+//是否满足条件
+	function some(arr,fn){
+		for(var i=0;i<arr.length;i++){
+			if(fn(arr[i])){
+				return true;
+			}
+		}
+		return false;
+	}
+	function ever(arr,fn){
+		for(var i=0;i<arr.length;i++){
+			if(!fn(arr[i])){
+				return false;
+			}
+		}
+		return true;
+	}
+	var t=some(arr,v => v>0);
+	var tt=ever(arr,v =>v>0);
+	console.log(t);
+	console.log(tt);
+
+
+//递归!=循环
+	 fn(0);
+	 function fn(x){
+	 	if(x<5){
+	 		fn(++x);
+	 	}
+	 	alert(x);
+	 }
+
+	 function copy(arr){
+	 	var narr=[];
+	 	for(var i=0;i<arr.length;i++){
+	 		if(typeof arr[i]== 'object'){
+	 			narr[i]=copy(arr[i]);
+	 		}else{
+	 			narr[i]=arr[i];
+	 		}
+	 	}
+	 	return narr;
+	 }
+	 var arr=[1,2,3,4,[5,6,7,8]];
+	 console.log(copy(arr));
+
+//闭包函数练习
+	function fn(){
+		var num=10;
+		return fn1;
+		function fn1(){
+			num++;
+			return num;
+		}
+	}
+	var r=fn();
+	alert(r());
+
+//数据转换
+	console.log(Boolean([]));
+	console.log(isNaN(''));
+	var lianxi;
+	if(lianxi){
+		lianxi=lianxi;
+	}else{
+		lianxi=0;
+	}
+	alert(lianxi);
+
+
+//object
+	function person(){};
+	var zhangsan=new person();
+	zhangsan.age=18;
+	zhangsan.sex='woman';
+	zhangsan.classes=function(){
+		alert('8383838');
+	}
+	console.log(zhangsan);
+	zhangsan.classes();
+	var lisi={
+
+	}
+	lisi.age=23;
+	lisi.sex='man';
+	console.log(lisi);
+</script> 
+	</script>
+</body>
+</html>
