@@ -6,7 +6,7 @@
 </head>
 <body>
 	<script>
-	var arr=new myArray(1,2,3,4,5,4);
+	var arr=new myArray(1,2,3,undefined,4,5,4);
 	console.log(arr);
 	console.log(arr.push1(0,0));
 	console.log(arr.index1of(4));
@@ -15,7 +15,8 @@
 	console.log(arr.reverse1());
 	console.log(arr.join());
 	console.log(arr.sortup());
-	console.log(arr.sortdown());
+	console.log(arr. sortdown());
+	console.log(arr. delete1()); 
 
 	let so=arr.some(function(v){
 		return typeof v =='boolean';
@@ -79,9 +80,9 @@
 		}
 
 		this.reverse1=function(){
-			var newarr=[];
+			let newarr=new myArray();
 			for(let i=this.length-1;i>=0;i--){
-				newarr[newarr.length]=this[i];
+				newarr.push1(this[i]);
 			}
 			return newarr;
 		}
@@ -93,6 +94,16 @@
 			}
 			
 			return str;
+		}
+
+		this.delete1=function(){
+			var newarr=new myArray();
+			for(let i=0;i<this.length;i++){
+				if(this[i]!=undefined){
+					newarr.push1(this[i]);
+				}
+			}
+			return newarr;
 		}
 
 		this.sortup=function(){
@@ -140,18 +151,18 @@
 		}
 
 		this.map=function(fn){
-			let newarr=[];
+			let newarr=new myArray();
 			for(let i=0;i<this.length;i++){
-				newarr[newarr.length]=fn(this[i]);
+				newarr.push1(fn(this[i]));
 			}
 			return newarr;
 		}
 
 		this.filter=function(fn){
-			let newarr=[];
+			let newarr=new myArray();
 			for(let i=0;i<this.length;i++){
 				if(fn(this[i])){
-					newarr[newarr.length]=this[i];
+					newarr.push1(this[i]);
 				}
 			}
 			return newarr;
