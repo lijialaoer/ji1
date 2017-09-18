@@ -1,0 +1,38 @@
+/*
+* @Author: lenovo
+* @Date:   2017-09-15 17:10:03
+* @Last Modified by:   lenovo
+* @Last Modified time: 2017-09-15 19:22:24
+*/
+@import url('base.css');
+
+
+main{
+	width: 300px;
+	height: 187px;
+	background: #fff;
+	padding: 10px 15px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+main div.text{
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	line-height: 40px;
+}
+main div.text h3{
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	line-height: 40px;
+	margin-bottom: 20px;
+}
+main div.text span{
+	font-size: 20px;
+	margin-right: 5px;
+}
